@@ -1,0 +1,50 @@
+<%- include ../layouts/header.ejs %>
+
+    <div class="card bg-secondary text-white">
+        <div class="card-header">
+            ACTUALIZAR INFORMACION
+        </div>
+        <div class="card-body">
+            <form method="post" action="../actualizar/" enctype="multipart/form-data">
+
+                <input id="my-input" type="hidden" name="id" value="<%= libroE.id %> ">
+
+                <div class="form-group mb-3">
+                    <label for="my-input">Titulo</label>
+                    <input id="my-input" class="form-control" type="text" name="titulo" value="<%= libroE.titulo %>">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="my-input">Descripcion</label>
+                    <input id="my-input" class="form-control" type="text" name="descripcion"
+                        value="<%= libroE.descripcion %>">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="my-input">Categoria</label>
+                    <select name="categoria" id="categoria" class="form-select">
+                        <option selected value="<%= libroE.categoria %>">
+                            <%= libroE.categoria %>
+                        </option>
+                        <option value="PROGRAMACIÓN">PROGRAMACIÓN</option>
+                        <option value="ELECTRONICA">ELECTRONICA</option>
+                        <option value="RETROINFORMATICA">RETROINFORMATICA</option>
+                        <option value="ROBOTICA">ROBOTICA</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="my-input">Imagen</label>
+                    <input id="my-input" class="form-control mb-3" type="file" name="imagen">
+                    <img class="img-thumbnail" src="../../images/<%= libroE.imagen %>" width="300" alt="">
+                </div>
+
+                <button type="submit" class="btn btn-success bi bi-pencil-square"> Actualizar</button>
+                <a href="/librosE" class="btn btn-danger bi bi-x-octagon"> Cancelar</a>
+
+            </form>
+
+        </div>
+    </div>
+<br><br>
+

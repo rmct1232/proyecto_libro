@@ -1,0 +1,52 @@
+<%- include ../layouts/header.ejs %>
+
+    <div class="card mb-5">
+        <div class="card-header text-center display-4 text-dark">
+            <strong> LIBROS DE ELECTRONICA</strong>
+        </div>
+    </div>
+
+    <a href="/librosE/crear" class="btn btn-outline-primary">Agregar</a>
+
+    <br>
+    <br>
+
+    <div class="row">
+
+        <% for( let libroE=0; libroE < librosE.length; libroE++ ) { %>
+
+            <div class="col-sm-3 mb-3">
+                <div class="card">
+                    <img width="400" src="images/<%= librosE[libroE].imagen %>" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted">#<%= librosE[libroE].id %>
+                        </h5>
+                        <h5 class="card-title text-center text-dark"> <strong>
+                                <%= librosE[libroE].titulo %>
+                            </strong>
+                        </h5>
+                        <p class="card-text text-dark">
+                            <%= librosE[libroE].descripcion %>
+                        </p>
+                        <p class="card-text text-dark"><span class="text-muted"> Categoria:</span>
+                            <%= librosE[libroE].categoria %>
+                        </p>
+                        <br>
+                        <br>
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <form action="/librosE/editar/<%= librosE[libroE].id %> " method="get">
+                                <button class="btn btn-info bi bi-pencil-square" type="submit">Editar</button>
+                            </form>
+                            <form action="/librosE/eliminar/<%= librosE[libroE].id %> " method="post">
+                                <button class="btn btn-danger  bi bi-trash" type="submit"> Eliminar</button>
+                            </form>
+                            <button type="button" class="btn btn-warning">Ver libro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+    </div>
+
+    <%- include ../layouts/footer.ejs %>
